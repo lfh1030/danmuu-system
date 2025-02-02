@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>吃货弹幕生成器</title>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        .logo { width: 200px; margin: 20px; }
+        .danmu-box { color: #ff5722; font-size: 18px; }
+        .start-btn { 
+            background: #ff5722; 
+            color: white; 
+            padding: 12px 30px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- 需要修改1：确认图片路径 -->
+    <img src="assets/logo.png" class="logo" alt="品牌LOGO">
+    <h2>生成你的专属吃货弹幕</h2>
+    <div class="danmu-box" id="danmu">弹幕加载中...</div>
+    <button class="start-btn" onclick="location.href='input.html'">立即生成</button>
+
+    <script>
+        // 预置弹幕（可修改内容）
+        const danmuList = [
+            "王同学正在暴风吸入毛肚",
+            "李小姐用菌汤锅庆生",
+            "张先生点了变态辣锅"
+        ];
+        let index = 0;
+        setInterval(() => {
+            document.getElementById("danmu").textContent = danmuList[index];
+            index = (index + 1) % danmuList.length;
+        }, 3000);
+    </script>
+</body>
+</html>
